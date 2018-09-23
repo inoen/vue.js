@@ -1,6 +1,11 @@
 <template>
   <div id="app">
     <img src="./assets/logo.png">
+    <form>
+      <input v-model="todo">
+      <input type="submit" val="追加">
+    </form>
+    {{todo}}
     <HelloWorld/>
   </div>
 </template>
