@@ -83,5 +83,10 @@
     "> 1%",
     "last 2 versions",
     "not ie <= 8"
-  ]
+  ],
+  
+  "globals": {
+    "axios": true,
+    "var2": false
+}
 }

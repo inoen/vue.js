@@ -39,9 +39,9 @@ export default {
       this.todo = ''
     },
     doneTodo: function (item) {
-      if (item.status == 'done') {
-        item.status = 'todo'}
-      else {
+      if (item.status === 'done') {
+        item.status = 'todo'
+      } else {
         item.status = 'done'
       }
     }
