@@ -1,6 +1,0 @@
-{
-    "globals": {
-        "axios": false,
-        "var2": false
-    }
-}

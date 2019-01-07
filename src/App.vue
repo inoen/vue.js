@@ -2,6 +2,7 @@
   <div id="app">
     <img src="./assets/logo.png">
     <Todo />
+    <HelloWorld />
     <div v-on:click="countup">
       countup
     </div>
@@ -11,36 +12,36 @@
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld'
-import Todo from './components/Todo'
+import HelloWorld from "./components/HelloWorld";
+import Todo from "./components/Todo";
 
 export default {
-  data () {
+  data() {
     return {
-      omikujiResult: ['大吉', '中吉', '小吉', '凶'],
+      omikujiResult: ["大吉", "中吉", "小吉", "凶"],
       count: 0
-    }
+    };
   },
   methods: {
-    omikuji: function () {
-      const num = Math.floor(Math.random() * this.omikujiResult.length)
-      this.result = this.omikujiResult[num]
+    omikuji: function() {
+      const num = Math.floor(Math.random() * this.omikujiResult.length);
+      this.result = this.omikujiResult[num];
     },
-    countup: function () {
-      this.count += 1
+    countup: function() {
+      this.count += 1;
     }
   },
-  name: 'App',
+  name: "App",
   components: {
     HelloWorld,
     Todo
   }
-}
+};
 </script>
 
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
