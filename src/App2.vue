@@ -1,25 +1,25 @@
 <template>
   <div id="app2">
+    <img src="./assets/logo.png">
     <h2>タスク一覧</h2>
-    <table>
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>COMMENT</th>
-          <th>STATUS</th>
-          <th>-</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="item in tasks" v-bind:key="item.id">
-          <th>{{item.id}}</th>
-          <td>{{item.name}}</td>
-        </tr>
-      </tbody>
-    </table>
-    <ul>
-      <item v-for="item in items" :item="item"></item>
-    </ul>
+    <div class>
+      <p>o</p>
+    </div>
+    <div class="div">
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>COMMENT</th>
+            <th>STATUS</th>
+            <th>-</th>
+          </tr>
+        </thead>
+        <tbody>
+          <item v-for="item in items" :item="item"></item>
+        </tbody>
+      </table>
+    </div>
     <div class>
       <input type="text" v-model="inputTitle">
       <button @click="ADD_TASK(inputTitle)">add</button>
@@ -46,3 +46,23 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+#app2 {
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
+  margin-right: auto;
+  margin-left: auto;
+}
+.div {
+  display: flex;
+  justify-content: space-around;
+}
+table {
+  width: 800px;
+}
+</style>

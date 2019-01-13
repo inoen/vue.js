@@ -16,6 +16,7 @@ export default new Vuex.Store({
         [types.ADD_TASK]({ commit }, title) {
             let newItem = {
                 title: title,
+                status: '未',
                 is_do: false
             }
             commit(types.ADD_TASK, {
@@ -35,6 +36,11 @@ export default new Vuex.Store({
         [types.DONE_TASK](state, payload) {
             let index = state.items.indexOf(payload.data)
             state.items[index].is_do = !payload.data.is_do
+            if (state.items[index].status === '済') {
+                state.items[index].status = '未'
+            } else {
+                state.items[index].status = '済'
+            }
         }
     }
 })
