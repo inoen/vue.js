@@ -23,6 +23,8 @@
     <div class>
       <input type="text" v-model="inputTitle">
       <button @click="ADD_TASK(inputTitle)">add</button>
+      <button type="button" v-on:click="save">8</button>
+      <button type="button" v-on:click="restore">8</button>
     </div>
   </div>
 </template>
@@ -39,7 +41,13 @@ export default {
     };
   },
   methods: {
-    ...mapActions([types.ADD_TASK])
+    ...mapActions([types.ADD_TASK]),
+    save() {
+      this.$store.dispatch("save");
+    },
+    restore() {
+      this.$store.dispatch("restore");
+    }
   },
   computed: {
     ...mapState(["items"])

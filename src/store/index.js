@@ -11,6 +11,8 @@ export default new Vuex.Store({
             { is_do: true, title: 'タスク2' },
             { is_do: false, title: 'タスク3' }
         ]
+
+
     },
     actions: {
         [types.ADD_TASK]({ commit }, title) {
@@ -27,6 +29,18 @@ export default new Vuex.Store({
             commit(types.DONE_TASK, {
                 data: item
             })
+        },
+        save({ state }) {
+            const data = {
+                items: state.items
+            }
+            localStorage.setItem('todolist', JSON.stringify(data))
+        },
+        restore({ commit }) {
+            const data = localStorage.getItem('todolist')
+            if (data) {
+                commit('restore', JSON.parse(data))
+            }
         }
     },
     mutations: {
@@ -41,6 +55,9 @@ export default new Vuex.Store({
             } else {
                 state.items[index].status = '済'
             }
+        },
+        restore(state, { items }) {
+            state.items = items
         }
     }
 })
