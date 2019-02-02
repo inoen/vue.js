@@ -4,44 +4,27 @@ import Vue from 'vue'
 
 import App2 from './App2'
 import store from './store/index.js'
+import router from './router'
+import firebase from 'firebase'
 Vue.config.productionTip = false
 
-// https://jp.vuejs.org/v2/examples/todomvc.html
-var STORAGE_KEY = "todos-vuejs-demo";
-var todoStorage = {
-  fetch: function () {
-    var todos = JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
-    todos.forEach(function (todo, index) {
-      todo.id = index;
-    });
-    todoStorage.uid = todos.length;
-    return todos;
-  },
-  save: function (todos) {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(todos));
-  }
+
+
+// Initialize Firebase
+const config = {
+  apiKey: "AIzaSyCvxuJN2hVyVqsFtVrniihI-YOoR-fKnMg",
+  authDomain: "meno-eca3a.firebaseapp.com",
+  databaseURL: "https://meno-eca3a.firebaseio.com",
+  projectId: "meno-eca3a",
+  storageBucket: "meno-eca3a.appspot.com",
+  messagingSenderId: "431840097707"
 };
-/* eslint-disable no-new */
+firebase.initializeApp(config);/* eslint-disable no-new */
 new Vue({
   store,
+  router,
   el: '#app2',
+  components: { App2 },
+  template: '<App2/>',
   render: h => h(App2)
 })
-
-// https://jp.vuejs.org/v2/examples/todomvc.html
-var STORAGE_KEY = 'todos-vuejs-demo'
-var todoStorage = {
-  fetch: function () {
-    var todos = JSON.parse(
-      localStorage.getItem(STORAGE_KEY) || '[]'
-    )
-    todos.forEach(function (todo, index) {
-      todo.id = index
-    })
-    todoStorage.uid = todos.length
-    return todos
-  },
-  save: function (todos) {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(todos))
-  }
-}

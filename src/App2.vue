@@ -1,10 +1,7 @@
 <template>
   <div id="app2">
     <img src="./assets/logo.png">
-    <h2>タスク一覧</h2>
-    <div class>
-      <p>o</p>
-    </div>
+    <router-view/>
     <div class="div">
       <table>
         <thead>
